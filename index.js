@@ -5,13 +5,13 @@ function mostrarDatosJSON() {
         if (this.readyState === 4 && this.status === 200) {
             var datos = JSON.parse(this.responseText);
             resultado.innerHTML = '';
-            for(var a in datos) {
-                resultado.innerHTML += '<h3>'+a+'</h3>';
-                for(var b in datos[a]){
-                    resultado.innerHTML += b+': '+ datos[a][b]+'<br>';
-                }
-                resultado.innerHTML += '<hr>';
-            }
+            var min = [];
+            //var min = datos[0].Edad
+            datos.forEach(function(datoSimple){
+                min.push(datoSimple.Edad);
+                //min = min < datoSimple.Edad ? min : datoSimple.Edad;
+            });
+            resultado.innerHTML += 'La edad menor es:' + Math.min.apply(null, min);
         }
     };
     ajaxRequest.open("GET", "datos.json", true);
