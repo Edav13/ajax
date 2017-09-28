@@ -1,4 +1,4 @@
-function mostrarDatos() {
+function mostrarDatosJSON() {
 	var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
 	//0 peticion no ha sido inicializada
 	//1 peticion no ha sido establecida
@@ -11,9 +11,9 @@ function mostrarDatos() {
 		if (this.readyState === 4 && this.status === 200) {
 			var datos = JSON.parse(this.responseText);
 			resultado.innerHTML = '';
-			for (var i in datos) {
-				resultado.innerHTML += i + ': ' +datos[i]+'<br>';
-			}
+			datos.forEach(function(datoSimple){
+				resultado.innerHTML += datoSimple.Nombre+' tiene '+ datoSimple.Edad +' años.<hr>';
+			});
 		}
 	};
 	ajaxRequest.open("GET", "datos.json", true);
