@@ -1,32 +1,14 @@
-[
-    {
+{
+    "Luis": {
         "Nombre": "Luis",
         "Apellido": "Gomez",
-        "Edad": 25 
+        "Edad": 25,
+        "Salario": 2000 
     },
-    {
-        "Nombre": "Maria",
+    "Miguel": {
+        "Nombre": "Miguel",
         "Apellido": "Lopez",
-        "Edad": 20 
-    },
-    {
-        "Nombre": "Lucero",
-        "Apellido": "Perez",
-        "Edad": 25 
-    },
-    {
-        "Nombre": "Daniel",
-        "Apellido": "Ruiz",
-        "Edad": 25 
-    },
-    {
-        "Nombre": "Teresa",
-        "Apellido": "Ponce",
-        "Edad": 25 
-    },
-    {
-        "Nombre": "David",
-        "Apellido": "Alaya",
-        "Edad": 25 
+        "Edad": 20,
+        "Salario": 3000 
     }
-]
+}
