@@ -7,7 +7,9 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	Buscar persona: <input type="text" onkeyup="mostrarDatosJSON(this.value)">
+	Nombre: <input type="text" id="nombre"><br>
+	Apellido: <input type="text" id="apellido"><br>
+	<button type="submit" value="Enviar" onclick="ajaxPost()">Enviar</button>
 	<div id="info"></div>
 	<script src="index.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>

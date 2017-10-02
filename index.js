@@ -1,23 +1,22 @@
-function mostrarDatosJSON(nombre) {
+function ajaxPost(nombre) {
     var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var resultado = document.getElementById('info');
-    console.log(nombre.lenght)
-    if(nombre === '' || nombre === undefined) {
-        resultado.innerHTML = '';
-    }else {
-        ajaxRequest.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                var datos = JSON.parse(this.responseText);
-                var min = [];
-                datos.forEach(function(datoSimple){
-                    min.push(datoSimple.Nombre);
-                });
-                resultado.innerHTML = min.indexOf(nombre) > -1 ? '<br>Nombre encontrado': '<br>Nombre no encontrado'
-            }
-        };
-        ajaxRequest.open("GET", "datos.json", true);
-        ajaxRequest.send();
-    }
+    var nombre = document.getElementById('nombre').value;
+    var apellido = document.getElementById('apellido').value;
+    var salidaPhp = 'nombre='+ nombre + '&apellido='+apellido;
+
+    ajaxRequest.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            var mensaje = ajaxRequest.responseText;
+            console.log(mensaje)
+
+            resultado.innerHTML = mensaje;
+        }
+    };
+
+    ajaxRequest.open("POST", "servidor.php", true);
+    ajaxRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+    ajaxRequest.send(salidaPhp)
 }
 //0 peticion no ha sido inicializada
 //1 peticion no ha sido establecida
