@@ -1,22 +1,18 @@
-function ajaxPost(nombre) {
+function ejecutarAJAx() {
     var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var resultado = document.getElementById('info');
-    var nombre = document.getElementById('nombre').value;
-    var apellido = document.getElementById('apellido').value;
-    var salidaPhp = 'nombre='+ nombre + '&apellido='+apellido;
+    var num1 = document.getElementById('n1').value;
+    var num2 = document.getElementById('n2').value;
+    var cadena = 'num1=' + num1 + '&num2=' + num2;
 
     ajaxRequest.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            var mensaje = ajaxRequest.responseText;
-            console.log(mensaje)
-
-            resultado.innerHTML = mensaje;
+            resultado.innerHTML  = ajaxRequest.responseText;
         }
     };
-
-    ajaxRequest.open("POST", "servidor.php", true);
-    ajaxRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-    ajaxRequest.send(salidaPhp)
+    console.log(cadena)
+    ajaxRequest.open("GET", "servidor.php?" + cadena, true);
+    ajaxRequest.send();
 }
 //0 peticion no ha sido inicializada
 //1 peticion no ha sido establecida
