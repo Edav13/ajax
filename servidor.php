@@ -1,18 +1,16 @@
 <?php
-    $num1 = $_GET['num1'];
-    $num2 = $_GET['num2'];
-    $respuesta = "";
-    $respuesta .= "Por favor ingrese dos numeros";
-
-    if(!ctype_digit($num1) || !ctype_digit($num2)) {
-        $respuesta .= "Por favor ingrese dos numeros";
-    } else {
-        $respuesta .= "<table>";
-        $respuesta .= "<tr><td>". $num1 ." + ". $num2 ." = ".($num1 + $num2). "</td></tr>";
-        $respuesta .= "<tr><td>". $num1 ." - ". $num2 ." = ".($num1 - $num2). "</td></tr>";
-        $respuesta .= "<tr><td>". $num1 ." * ". $num2 ." = ".($num1 * $num2). "</td></tr>";
-        $respuesta .= "<tr><td>". $num1 ." / ". $num2 ." = ".($num1 / $num2). "</td></tr>";
-        $respuesta .= "</table>";
-    }
-    echo $respuesta;
+    $personas = array ("Ana", "Alberto", "Beto", "Cindy", "David", "Esteban", "Fiorela", "Guisela", "Henry", "Irma", "Jeferson", "Kathy", "Liz", "Nancy", "Oscar", "Pedro");
+    $nombre = $_GET['nombre'];
+    $sugerencia = "";
+    if($nombre !== "") {
+        $nombre = strtolower($nombre);
+        $n = strlen($nombre);
+        foreach($personas as $persona) {
+            $nombreServ = substr($persona, 0, $n);
+            if(stristr($nombre, $nombreServ) !== false) {
+                $sugerencia .= $sugerencia === "" ? $persona : ", $persona";
+            }
+        }
+    } 
+    echo $sugerencia === "" ? "No fue encontrado" : $sugerencia;
 ?>

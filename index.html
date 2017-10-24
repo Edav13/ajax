@@ -7,9 +7,10 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	Primer numero: <input type="text" id="n1"><br>
-	segundo Numero: <input type="text" id="n2"><br>
-	<button type="submit" value="Enviar" onclick="ejecutarAJAx()">Resolver</button>
+	<form>
+		Buscar persona: <input type="text" onkeyup="mostrarSugerencia(this.value)">
+	</form>
+	<p>
 	<div id="info"></div>
 	<script src="index.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>

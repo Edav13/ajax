@@ -1,18 +1,17 @@
-function ejecutarAJAx() {
+function mostrarSugerencia(nombre) {
     var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var resultado = document.getElementById('info');
-    var num1 = document.getElementById('n1').value;
-    var num2 = document.getElementById('n2').value;
-    var cadena = 'num1=' + num1 + '&num2=' + num2;
+    if(nombre.length === 0){
 
-    ajaxRequest.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            resultado.innerHTML  = ajaxRequest.responseText;
-        }
-    };
-    console.log(cadena)
-    ajaxRequest.open("GET", "servidor.php?" + cadena, true);
-    ajaxRequest.send();
+    } else {
+        ajaxRequest.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                resultado.innerHTML  = ajaxRequest.responseText;
+            }
+        };
+        ajaxRequest.open("GET", "servidor.php?nombre=" + nombre, true);
+        ajaxRequest.send();
+    }
 }
 //0 peticion no ha sido inicializada
 //1 peticion no ha sido establecida
