@@ -4,12 +4,26 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Ajax</title>
+	<style type="text/css" media="screen">
+		table {
+			width: 30%;
+			border-collapse: collapse;
+		}
+		table, td, th {
+			border: 1px solid #cccccc;
+			padding: 5px;
+		}
+		th {
+			text-align: left;
+		}
+		tr:nth-child(even) {
+			background-color: #E8ECED;
+		}
+	</style>
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<form>
-		Buscar persona: <input type="text" onkeyup="mostrarSugerencia(this.value)">
-	</form>
+	<button onclick="mostrarUsuarios()">Mostrar Usuarios</button>
 	<p>
 	<div id="info"></div>
 	<script src="index.js" type="text/javascript" charset="utf-8" async defer></script>

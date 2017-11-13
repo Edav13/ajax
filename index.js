@@ -1,17 +1,14 @@
-function mostrarSugerencia(nombre) {
+function mostrarUsuarios() {
     var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var resultado = document.getElementById('info');
-    if(nombre.length === 0){
 
-    } else {
-        ajaxRequest.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                resultado.innerHTML  = ajaxRequest.responseText;
-            }
-        };
-        ajaxRequest.open("GET", "servidor.php?nombre=" + nombre, true);
-        ajaxRequest.send();
-    }
+    ajaxRequest.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            resultado.innerHTML  = ajaxRequest.responseText;
+        }
+    };
+    ajaxRequest.open("GET", "servidor.php", true);
+    ajaxRequest.send();
 }
 //0 peticion no ha sido inicializada
 //1 peticion no ha sido establecida
