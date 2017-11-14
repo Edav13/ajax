@@ -1,14 +1,18 @@
-function mostrarUsuarios() {
-    var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var resultado = document.getElementById('info');
+function mostrarUsuario(usuarioSeleccionado) {
+	var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+	var resultado = document.getElementById('info');
 
-    ajaxRequest.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            resultado.innerHTML  = ajaxRequest.responseText;
-        }
-    };
-    ajaxRequest.open("GET", "servidor.php", true);
-    ajaxRequest.send();
+	if(usuarioSeleccionado === '') {
+		resultado.innerHTML = '';
+	} else {
+		ajaxRequest.onreadystatechange = function() {
+			if (this.readyState === 4 && this.status === 200) {
+				resultado.innerHTML  = ajaxRequest.responseText;
+			}
+		};
+		ajaxRequest.open("GET", "servidor.php?usuario="+usuarioSeleccionado, true);
+		ajaxRequest.send();
+	}
 }
 //0 peticion no ha sido inicializada
 //1 peticion no ha sido establecida

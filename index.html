@@ -23,7 +23,17 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<button onclick="mostrarUsuarios()">Mostrar Usuarios</button>
+	<select onchange="mostrarUsuario(this.value)">
+		<option value="">seleccionar</option>
+		<option value="1">Beto</option>
+		<option value="2">Maria</option>
+		<option value="3">Steve</option>
+		<option value="4">Ana</option>
+		<option value="5">Luis</option>
+		<option value="6">Carmen</option>
+		<option value="7">Boris</option>
+		<option value="8">Gustavo</option>
+	</select>
 	<p>
 	<div id="info"></div>
 	<script src="index.js" type="text/javascript" charset="utf-8" async defer></script>

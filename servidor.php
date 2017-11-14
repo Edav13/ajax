@@ -1,7 +1,11 @@
 <?php
     require "conexion.php";
 
-    $resultadoBD = mysqli_query($con, "SELECT * FROM personas");
+    $usuario = $_GET['usuario'];
+    $usuario = (int)$usuario;
+
+    $resultadoBD = mysqli_query($con, "SELECT * FROM personas WHERE usuario = $usuario");
+
     $usuariosBD = "";
     $usuariosBD .= "<table>";
     $usuariosBD .= "<tr>";
