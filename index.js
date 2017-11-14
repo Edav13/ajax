@@ -1,8 +1,8 @@
-function mostrarUsuario(usuarioSeleccionado) {
+function mostrarUsuario(nombre) {
 	var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
 	var resultado = document.getElementById('info');
 
-	if(usuarioSeleccionado === '') {
+	if(nombre === '') {
 		resultado.innerHTML = '';
 	} else {
 		ajaxRequest.onreadystatechange = function() {
@@ -10,7 +10,7 @@ function mostrarUsuario(usuarioSeleccionado) {
 				resultado.innerHTML  = ajaxRequest.responseText;
 			}
 		};
-		ajaxRequest.open("GET", "servidor.php?usuario="+usuarioSeleccionado, true);
+		ajaxRequest.open("GET", "servidor.php?nombre="+nombre, true);
 		ajaxRequest.send();
 	}
 }

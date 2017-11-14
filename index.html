@@ -5,35 +5,17 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Ajax</title>
 	<style type="text/css" media="screen">
-		table {
-			width: 30%;
-			border-collapse: collapse;
-		}
-		table, td, th {
-			border: 1px solid #cccccc;
-			padding: 5px;
-		}
-		th {
-			text-align: left;
-		}
-		tr:nth-child(even) {
-			background-color: #E8ECED;
-		}
+		.miClase {
+            color:blue;
+        }
 	</style>
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<select onchange="mostrarUsuario(this.value)">
-		<option value="">seleccionar</option>
-		<option value="1">Beto</option>
-		<option value="2">Maria</option>
-		<option value="3">Steve</option>
-		<option value="4">Ana</option>
-		<option value="5">Luis</option>
-		<option value="6">Carmen</option>
-		<option value="7">Boris</option>
-		<option value="8">Gustavo</option>
-	</select>
+	<form>
+		Buscar persona:
+		<input type="text" placeholder="Ingresar nombre" onkeyup="mostrarUsuario(this.value)"">
+	</form>
 	<p>
 	<div id="info"></div>
 	<script src="index.js" type="text/javascript" charset="utf-8" async defer></script>
