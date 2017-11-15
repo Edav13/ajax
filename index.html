@@ -8,6 +8,53 @@
 		.miClase {
             color:blue;
         }
+        button {
+        	padding: 15px;
+        	margin-left: 42%;
+        	font-size: 14px;
+        	cursor: pointer;
+        }
+        div#overlay{
+        	display: none;
+        	z-index: 2;
+        	background: #000000;
+        	position: fixed;
+        	width: 100%;
+        	height: 100%;
+        	top: 0px;
+        	left: 0px;
+        	text-align: center;
+        }
+
+        div#informacionDelUsuario{
+        	display: none;
+        	position: relative;
+        	z-index: 3;
+        	margin: 100px auto 0px;
+        	width: 400px;
+        	height: 250px;
+        	background: #ffffff;
+        	color: #000000;
+        	border: 4px solid #cccccc;
+        	font-size: 18px;
+        }
+        div#wrapper{
+        	position: absolute;
+        	top: 40px;
+        }
+        #info{
+        	padding: 20px;
+        }
+        #titulo{
+        	width: 100%;
+        	height: 12%;
+        	background: #e9e9e9;
+        	padding: -20px;
+        	text-align: center;
+        	font-family: arial;
+        	font-size: 18px;
+        	padding-top: 15px; 
+        }
 	</style>
 	<link rel="stylesheet" href="">
 </head>
@@ -16,7 +63,9 @@
 		Buscar Cliente: <input type="text" id="texto" placeholder="Ingresar nombre" onkeyup="buscarUsuario(this.value)" /><br>		
 	</form>
 	<p>
-	<div id="info"></div>
+	<div id="wrapper">
+		<div id="mostrar"></div>
+	</div>
 
 	<div id="overlay"></div>
 	<div id="informacionDelUsuario">

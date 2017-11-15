@@ -7,7 +7,7 @@
         $cliente = mysqli_real_escape_string($con, $nombre);
         $resultadoBD = mysqli_query($con, "SELECT * FROM personas WHERE nombre LIKE '%".$cliente."%'");
         while($fila = mysqli_fetch_assoc($resultadoBD)) {
-            echo '<div class="miClase">'.$fila['nombre'].'</div>';
+            echo '<div class="miClase" onclick="toggleOverlay(this)" >'.$fila['nombre'].'</div>';
             echo '<input type="hidden" value="'.$fila['correo'].'"/>';
         }
         mysqli_close($con);
@@ -19,7 +19,7 @@
         $resultado = mysqli_query($con, "SELECT * FROM personas");
 
         while($fila = mysqli_fetch_assoc($resultado)) {
-            echo '<div class="miClase">'.$fila['nombre'].'</div>';
+            echo '<div class="miClase" onclick="toggleOverlay(this)">'.$fila['nombre'].'</div>';
             echo '<input type="hidden" value="'.$fila['correo'].'"/>';
         }
         mysqli_close($con);
