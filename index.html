@@ -11,14 +11,19 @@
 	</style>
 	<link rel="stylesheet" href="">
 </head>
-<body>
+<body onload="mostrarClientes()">
 	<form>
-		Nombre: <input type="text" id="nombre" /><br>
-		Correo: <input type="email" id="correo" /><br>
-		<input type="button" value="Enviar" onclick="ajax_post()">
+		Buscar Cliente: <input type="text" id="texto" placeholder="Ingresar nombre" onkeyup="buscarUsuario(this.value)" /><br>		
 	</form>
 	<p>
 	<div id="info"></div>
+
+	<div id="overlay"></div>
+	<div id="informacionDelUsuario">
+		<div id="titulo">Infomación Personal</div>
+		<p id="info"></p>
+		<button onclick="toggleOverlay(this)">Cerrar</button>
+	</div>
 	<script src="index.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

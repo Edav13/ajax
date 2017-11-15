@@ -1,21 +1,27 @@
-function ajax_post() {
+var resultado = document.getElementById('info');
+
+function mostrarClientes() {
     var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var resultado = document.getElementById('info');
-
-    var a = document.getElementById("nombre").value;
-    var b = document.getElementById("correo").value;
-
-    var informacionDelUsuario = 'nombre=' + a + '&correo=' + b;
 
     ajaxRequest.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             resultado.innerHTML  = ajaxRequest.responseText;
         }
     };
-    ajaxRequest.open('POST', 'servidor.php', true);
-    ajaxRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-    ajaxRequest.send(informacionDelUsuario);
+    ajaxRequest.open('GET', 'servidor.php', true);
+    ajaxRequest.send();
 
+}
+function buscarUsuario(nombre) {
+    var ajaxRequest = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+
+    ajaxRequest.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            resultado.innerHTML  = ajaxRequest.responseText;
+        }
+    };
+    ajaxRequest.open('GET', 'servidor.php?nombre='+nombre, true);
+    ajaxRequest.send();
 }
 //0 peticion no ha sido inicializada
 //1 peticion no ha sido establecida
