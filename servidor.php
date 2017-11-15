@@ -1,15 +1,14 @@
 <?php
     require "conexion.php";
 
-    $nombre = $_GET['nombre'];
-    if(!empty($nombre)) {
-        $persona = mysqli_real_escape_string($con, $nombre);
-        $resultadoBD = mysqli_query($con, "SELECT * FROM personas WHERE nombre LIKE '%".$persona."%'");
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
 
-        while($fila = mysqli_fetch_assoc($resultadoBD)) {
-            echo '<div class="miClase">'. $fila['nombre'] . '</div>';
-        }
-        mysqli_close($con);
+    if(empty($nombre) || empty($correo)) {
+        echo "<span style='color:red;'>"."Por favor ingrese su nombre y correo"."</span>";
+    } else {
+        $resultadoDB = mysqli_query($con, "INSERT into personas values('', '$nombre','$correo')");
+        echo "<span style='color:red;'>"."Gracias ".$nombre." ".$correo."</span>";        
     }
     
 

@@ -13,8 +13,9 @@
 </head>
 <body>
 	<form>
-		Buscar persona:
-		<input type="text" placeholder="Ingresar nombre" onkeyup="mostrarUsuario(this.value)"">
+		Nombre: <input type="text" id="nombre" /><br>
+		Correo: <input type="email" id="correo" /><br>
+		<input type="button" value="Enviar" onclick="ajax_post()">
 	</form>
 	<p>
 	<div id="info"></div>
