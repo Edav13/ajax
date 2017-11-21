@@ -1,7 +1,33 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<cliente>
-	<nombre>Luis</nombre>
-	<apellido>Cardenas</apellido>
-	<edad>20</edad>
-	<salario>3000</salario>
-</cliente>
+<Cliente>
+    <cliente>
+        <nombre>Luis</nombre>
+        <apellido>Cardenas</apellido>
+        <edad>20</edad>
+        <salario>3000</salario>
+    </cliente>
+    <cliente>
+        <nombre>Mario</nombre>
+        <apellido>Lopez</apellido>
+        <edad>25</edad>
+        <salario>1500</salario>
+    </cliente>
+    <cliente>
+        <nombre>Manuel</nombre>
+        <apellido>Gomez</apellido>
+        <edad>32</edad>
+        <salario>2500</salario>
+    </cliente>
+    <cliente>
+        <nombre>Esteban</nombre>
+        <apellido>Perez</apellido>
+        <edad>27</edad>
+        <salario>2600</salario>
+    </cliente>
+    <cliente>
+        <nombre>Lucia</nombre>
+        <apellido>Ruiz</apellido>
+        <edad>35</edad>
+        <salario>4200</salario>
+    </cliente>
+</Cliente>
