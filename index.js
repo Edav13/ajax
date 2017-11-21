@@ -1,23 +1,29 @@
 function ejecutarAjax() {
-    var resultado = document.getElementById('info');
+    var resultado = document.getElementById('listaDeUsuarios');
     var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             if(this.responseXML !== null) {
                 var xmlDoc = xmlhttp.responseXML;
-                var tabla = '<tr><th>Nombre</th><th>Apellido</th></tr>';
+                var usuarios = '';
                 var persona = xmlDoc.getElementsByTagName('cliente');
-                for(var i=0; i < persona.length;i++){
-                    tabla += '<tr><td>' + persona[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue + '</td><td>' + persona[i].getElementsByTagName('apellido')[0].childNodes[0].nodeValue + '</td></tr>'
+                for(var i = 0; i < persona.length;i++){
+                    usuarios += '<option>' + persona[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue + '</option>';
                 }
-                resultado.innerHTML = tabla;
+                resultado.innerHTML = usuarios;
             }
         }
     };
     xmlhttp.open('GET', 'datos.xml', true);
     xmlhttp.send();
 
+}
+ejecutarAjax();
+
+function usuarioSeleccionado() {
+    var e = document.getElementById('listaDeUsuarios');
+    var usuario = e.options[e.selectedIndex].text;
+    document.getElementById('info').innerHTML = usuario + ' fue seleccionado.';
 }
 
 //0 peticion no ha sido inicializada
